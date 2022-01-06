@@ -5,7 +5,6 @@ import { API_KEY } from "./constants/API_KEY";
 
 function App() {
   const [videos, setVideos] = useState([]);
-  const [name, setName] = useState("ellie");
 
   // [] 이기 때문에 마운트 되었을때 한번만
   useEffect(() => {
