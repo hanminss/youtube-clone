@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import styles from "./app.module.css";
+import Searchheader from "./components/search_header/search_header";
 import VideoList from "./components/video_list/video_list";
 import { API_KEY } from "./constants/API_KEY";
 
@@ -21,7 +22,12 @@ function App() {
       .then((result) => setVideos(result.items))
       .catch((error) => console.log("error", error));
   }, []);
-  return <VideoList videos={videos} />;
+  return (
+    <div class={styles.app}>
+      <Searchheader />
+      <VideoList videos={videos} />
+    </div>
+  );
 }
 
 export default App;
