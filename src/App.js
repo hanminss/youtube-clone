@@ -1,21 +1,24 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useData } from "./hooks/useData";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const { data, error } = useData("딩고");
-  if (error) return <p>fuck</p>;
-  if (!data) return <p>wait ....</p>;
-  const items = data.items;
-  console.log(items);
-
   return (
-    <>
-      <header>Youtube</header>
-      {items.map((item) => {
-        return <p>{item.snippet.title}</p>;
-      })}
-    </>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
