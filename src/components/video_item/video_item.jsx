@@ -2,9 +2,13 @@ import React from "react";
 import styles from "./video_item.module.css";
 
 // props 안에 video 가 있으면 바로 매칭시켜주고 비디오 안에 스니핏이 있으면 바로 매칭시켜준다.
-const VideoItem = ({ video: { snippet } }) => {
+const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
+  const displayType = display === "list" ? styles.list : styles.grid;
   return (
-    <li className={styles.container}>
+    <li
+      className={`${styles.container} ${displayType}`}
+      onClick={() => onVideoClick(video)}
+    >
       <div className={styles.video}>
         <img
           className={styles.thumbnail}
