@@ -1,7 +1,7 @@
 import styles from "./search_header.module.css";
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 
-const Searchheader = ({ onSearch }) => {
+const Searchheader = memo(({ onSearch }) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
@@ -10,7 +10,7 @@ const Searchheader = ({ onSearch }) => {
   const onClick = () => {
     handleSearch();
   };
-
+  console.log("header!");
   const onKeyPress = (event) => {
     if (event.key === "Enter") handleSearch();
   };
@@ -37,6 +37,6 @@ const Searchheader = ({ onSearch }) => {
       </button>
     </header>
   );
-};
+});
 
 export default Searchheader;

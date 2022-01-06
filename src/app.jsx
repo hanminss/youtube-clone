@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./app.module.css";
 import Searchheader from "./components/search_header/search_header";
 import VideoDetail from "./components/video_detail/video_detail";
@@ -10,14 +10,17 @@ function App({ youtube }) {
   const selectVideo = (video) => {
     setSelectedVideo(video);
   };
-  const search = (query) => {
-    youtube
-      .search(query) //
-      .then((videos) => {
-        setVideos(videos);
-        selectVideo(null);
-      });
-  };
+  const search = useCallback(
+    (query) => {
+      youtube
+        .search(query) //
+        .then((videos) => {
+          setVideos(videos);
+          selectVideo(null);
+        });
+    },
+    [youtube]
+  );
   // [] 이기 때문에 마운트 되었을때 한번만
 
   useEffect(() => {
