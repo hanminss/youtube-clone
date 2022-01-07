@@ -12,10 +12,11 @@ class Youtube {
     const response = await this.youtube.get("videos", {
       params: {
         part: "snippet",
-        chart: "mastPopular",
-        maxResult: 25,
+        chart: "mostPopular",
+        maxResults: 25,
       },
     });
+
     return response.data.items;
   }
 
